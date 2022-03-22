@@ -39,10 +39,8 @@ cach_validation() {
     eval $(cat $CACHE_FILE)
     current_context=$(kubectl config current-context)
     if [[ $cached_context == $current_context ]]; then
-        echo equal! cached_version=$cached_version
         KUBECTL_VER=$cached_version
     else
-        echo not equal! cached_version=$cached_version
         discover_currect_kubectl_version
         echo cached_context=$current_context > $CACHE_FILE || fallback "Failed to edit $CACHE_FILE."
         echo cached_version=$KUBECTL_VER >> $CACHE_FILE || fallback "Failed to edit $CACHE_FILE."
