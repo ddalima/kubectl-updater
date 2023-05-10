@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# test
+
 args=("$@")
 
 KUBECTL_DIR=$HOME/.kubectl
